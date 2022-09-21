@@ -1,0 +1,9 @@
+/dist/*
+.husky/*
+/public/*
+public/*
+/src/styles/normalize.css
+/index.html
+*.md
+*.woff
+*.ttf

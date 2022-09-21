@@ -1,0 +1,137 @@
+/* 右侧主体内容 */
+.main-container {
+  position: relative;
+  margin-left: $sideBarWidth;
+  min-height: 100%;
+  transition: margin-left .28s;
+}
+
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 60;
+  overflow: hidden;
+  width: $sideBarWidth !important;
+  height: 100%;
+  background-color: $menuBg;
+  box-shadow: 0 0 1px #888;
+  transition: width .28s;
+
+  .scrollbar-wrapper {
+    overflow-x: hidden !important;
+  }
+
+  .el-scrollbar__bar.is-vertical {
+    right: 0;
+  }
+
+  .horizontal-collapse-transition {
+    transition: 0s width ease-in-out, 0s padding-left ease-in-out,
+    0s padding-right ease-in-out;
+  }
+
+  &.has-logo {
+    .el-scrollbar {
+      height: calc(100% - 50px);
+    }
+  }
+
+  .is-horizontal {
+    display: none;
+  }
+
+  a {
+    display: flex;
+    padding-left: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .el-menu {
+    height: 100%;
+    background-color: transparent !important;
+    border: none;
+  }
+
+  .el-menu-item,
+  .el-sub-menu__title {
+    height: 50px;
+    color: $menuText;
+    background-color: transparent !important;
+
+    &:hover {
+      color: $subMenuActiveText !important;
+    }
+
+    div,
+    span {
+      height: 50px;
+      line-height: 50px;
+    }
+  }
+
+  .submenu-title-noDropdown,
+  .el-sub-menu__title {
+    &:hover {
+      background-color: $menuHover !important;
+    }
+  }
+
+  .is-active > .el-sub-menu__title,
+  .is-active.submenu-title-noDropdown {
+    color: $subMenuActiveText !important;
+
+    i {
+      color: $subMenuActiveText !important;
+    }
+  }
+
+  .is-active {
+    .is-active {
+      color: $subMenuActiveText !important;
+      transition: color 0.3s;
+    }
+
+    .el-sub-menu__title,
+    .is-active.submenu-title-noDropdown {
+      color: $subMenuActiveText !important;
+
+      i {
+        color: $subMenuActiveText !important;
+      }
+    }
+  }
+
+  .el-menu .el-menu--inline .el-sub-menu__title,
+  & .el-sub-menu .el-menu-item {
+    min-width: $sideBarWidth !important;
+    background-color: $menuHover !important;
+
+    &:hover {
+      background-color: red !important;
+    }
+  }
+  ///* 无子集的激活菜单背景 */
+  //.is-active.submenu-title-noDropdown.outer-most {
+  //  background: $subMenuActiveBg !important;
+  //}
+  ///* 有子集的激活菜单背景 */
+  //.is-active.nest-menu {
+  //  background: $subMenuActiveBg !important;
+  //}
+}
+
+.hide-sidebar {
+  .sidebar-container {
+    width: 54px !important;
+    transition: width 0.28s;
+  }
+
+  .main-container {
+    margin-left: 54px;
+  }
+}
+
